@@ -1,7 +1,7 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 .navbar {
-  background: transparent; 
+  background: #F4F2F0; 
   position: fixed;
   top: 0; left: 0; right: 0;
   z-index: 100;
