@@ -7,7 +7,7 @@
       "tags": ["ReactJs", "Python", "PostgreSQL", "Flask"],
       "image": "/CC.jpg",
       "link": "https://crown-and-carre.netlify.app/",
-      "github": "https://github.com/yourusername/weather-dashboard"
+      "github": "/this-page-does-not-exist"
     },
     {
       "id": 2,
@@ -16,7 +16,7 @@
       "tags": ["ReactJs", "Python", "PostgreSQL", "Flask"],
       "image": "/Cooquie.jpg",
       "link": "https://cooquie-journal.netlify.app/",
-      "github": "https://github.com/yourusername/weather-dashboard"
+      "github": "https://github.com/arilobi/Cooquie-Journal"
     },
     {
       "id": 3,
@@ -25,7 +25,7 @@
       "tags": ["ReactJs", "JSON Server"],
       "image": "/Sumi.jpg",
       "link": "https://shopatsumi.netlify.app/",
-      "github": "https://github.com/yourusername/weather-dashboard"
+      "github": "https://github.com/arilobi/Sumi-Bookstore"
     },
     {
       "id": 4,
