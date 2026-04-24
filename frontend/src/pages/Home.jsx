@@ -3,6 +3,35 @@ import { petProjects, work } from "../data/Projects.json";
 import { FAQAccordion } from "../components/Faqs";
 import Marion from "../assets/Marion.jpg";
 import Lenis from "lenis";
+import '@fortawesome/fontawesome-free/css/all.min.css'; // Add this at the top
+
+// Skills component with proper animation classes
+const Skills = ({ skills }) => {
+    return (
+        <section id="skills" className="skills-section">
+            <div className="skills-header">
+                <h5 className="skills-subtitle">My Expertise</h5>
+                <h2 className="skills-title">Skills & Technologies</h2>
+            </div>
+            <div className="skills-container">
+                {skills.map((skill, index) => (
+                    <div key={index} className="skill-card">
+                        <div className="skill-icon">
+                            <i className={skill.icon}></i>
+                        </div>
+                        <h3 className="skill-name">{skill.name}</h3>
+                    </div>
+                ))}
+            </div>
+        </section>
+    );
+};
+
+const GitHubIcon = () => (
+    <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z" />
+    </svg>
+);
 
 export default function Home() {
     const [isVisible, setIsVisible] = useState(false);
@@ -11,8 +40,20 @@ export default function Home() {
     const [activeCategory, setActiveCategory] = useState("petProjects");
     const aboutRef = useRef(null);
 
-    const text = "Hey. My name is Marion. A software developer based in Nairobi. I'm also a digital artist and love incorporating my creative side in almost everything. Including Tech."
+    const skills = [
+        { name: "ReactJS", icon: "fab fa-react" },
+        { name: "JavaScript", icon: "fab fa-js" },
+        { name: "Python", icon: "fab fa-python" },
+        { name: "SQL", icon: "fas fa-database" },
+        { name: "Flask", icon: "fas fa-flask" },
+        { name: "SQLite", icon: "fas fa-database" },
+        { name: "HTML5", icon: "fab fa-html5" },
+        { name: "CSS3", icon: "fab fa-css3-alt" },
+        { name: "GitHub", icon: "fab fa-github" },
+        { name: "Figma", icon: "fab fa-figma" }
+    ];
 
+    const text = "Hey. My name is Marion. A software developer based in Nairobi. I'm also a digital artist and love incorporating my creative side in almost everything. Including Tech."
     const words = text.split(" ");
 
     const handleMouseMove = (e) => {
@@ -84,7 +125,6 @@ export default function Home() {
         );
 
         els.forEach(el => {
-            // Already in viewport — animate immediately, no flash
             if (el.getBoundingClientRect().top < window.innerHeight) {
                 el.classList.add('animate-visible');
             } else {
@@ -93,7 +133,7 @@ export default function Home() {
         });
 
         return () => observer.disconnect();
-    }, []); // empty array: runs once only
+    }, []);
 
     // Re-observe project cards when tab switches
     useEffect(() => {
@@ -103,7 +143,6 @@ export default function Home() {
                 el.classList.remove('animate-visible');
             });
 
-            // Next frame: re-add for ones already in viewport, observe the rest
             requestAnimationFrame(() => {
                 const observer = new IntersectionObserver((entries) => {
                     entries.forEach(entry => {
@@ -127,19 +166,13 @@ export default function Home() {
         });
 
         return () => cancelAnimationFrame(id);
-    }, [currentProjects]); // only re-runs when tab changes
+    }, [currentProjects]);
 
     const filters = [
         { id: "petProjects", label: "Pet Projects" },
         { id: "work", label: "Work" },
         { id: "figma", label: "Figma" },
     ];
-
-    const GitHubIcon = () => (
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z" />
-        </svg>
-    );
 
     const getCategoryLabel = () => {
         switch (activeCategory) {
@@ -203,8 +236,11 @@ export default function Home() {
                 </div>
             </section>
 
+            {/* Skills Section - No animation classes here */}
+            <Skills skills={skills} />
+
             <section id="projects">
-                <h5 className="about-title">Projects</h5>
+                <h5 className="about-title animate-fadeUp">Projects</h5>
 
                 <div className="project-filters">
                     {filters.map((filter) => (
@@ -269,7 +305,7 @@ export default function Home() {
             </div>
 
             <section id="contact" className="contact animate-fadeUp">
-                <h5 className="about-title">Projects</h5>
+                <h5 className="about-title">Get in Touch</h5>
                 <p className="wave-text animate-fadeUp">FEEL LIKE<br /> COLLABORATING?</p>
                 <a href="https://mail.google.com/mail/?view=cm&fs=1&to=marionnabulobi@gmail.com" target="_blank" className="btn hidden animate-fadeUp">Contact me</a>
             </section>

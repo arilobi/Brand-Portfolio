@@ -51,9 +51,6 @@ body::webkit-scrollbar {
 .hero-about {
     padding-left: 5rem;
     padding-right: 5rem;
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
 }
 
 .hero-about h1 {
@@ -73,6 +70,7 @@ body::webkit-scrollbar {
     color: #44403C;
     font-weight: 400;
     font-size: 1rem;
+    margin-bottom: 5rem;
 }
 
 /* Projects */
@@ -347,7 +345,7 @@ body::webkit-scrollbar {
         inset 0 0.5px 0.5px rgba(255, 255, 255, 0.5),
         0 0 0 0.5px rgba(255, 255, 255, 0.1);
     
-    padding: 0.8rem 2rem;
+    padding: 0.6rem 2rem;
     position: relative;
     overflow: hidden;
     transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
@@ -385,6 +383,194 @@ body::webkit-scrollbar {
 .demo-link:active {
     transform: scale(0.98);
     background: rgba(255, 255, 255, 0.12);
+}
+
+/* Skills */
+.skills-section {
+    margin-top: 10rem;
+    padding: 5rem clamp(1rem, 5vw, 5rem);
+    background: #fcfbf9;
+}
+
+.skills-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.skills-subtitle {
+    text-transform: uppercase;
+    font-family: Space Mono;
+    color: #44403C;
+    font-weight: 400;
+    font-size: clamp(0.8rem, 3vw, 1rem);
+    margin-bottom: 1rem;
+}
+
+.skills-title {
+    font-family: Instrument Serif;
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 500;
+    color: #44403C;
+    margin: 0;
+}
+
+.skills-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem;
+}
+
+.skill-card {
+    background: #F4F2F0;
+    border-radius: 1rem;
+    padding: 2rem 1rem;
+    text-align: center;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    border: 1px solid #e8e4df;
+}
+
+.skill-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.skill-icon {
+    font-size: clamp(2.5rem, 6vw, 3.5rem);
+    color: #44403C;
+    margin-bottom: 1rem;
+}
+
+.skill-name {
+    font-family: Geist, sans-serif;
+    font-size: clamp(0.85rem, 3vw, 1rem);
+    font-weight: 500;
+    color: #44403C;
+    margin: 0;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .skills-container {
+        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+        gap: 1rem;
+    }
+    
+    .skill-card {
+        padding: 1.5rem 0.75rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .skills-container {
+        grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+        gap: 0.75rem;
+    }
+    
+    .skill-card {
+        padding: 1rem 0.5rem;
+    }
+    
+    .skill-icon {
+        font-size: 2rem;
+    }
+}
+
+/* FAQ'S */
+.faq-container {
+  margin: clamp(20px, 5vw, 60px);
+  font-family: Geist;
+  text-align: left;
+  padding-left: clamp(1rem, 5vw, 7rem);
+  padding-right: clamp(1rem, 5vw, 7rem);
+}
+
+.faq-item {
+  padding: clamp(15px, 4vw, 30px);
+  margin-bottom: clamp(15px, 4vw, 30px);
+  border-bottom: 1px solid #4A4848;
+}
+
+.faq-question-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: clamp(10px, 3vw, 15px);
+}
+
+.faq-question {
+  font-size: clamp(14px, 4vw, 18px);
+  font-weight: 500;
+  margin: 0;
+  flex: 1;
+  line-height: 1.4;
+  color: #4A4848;
+}
+
+.faq-toggle {
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  margin-left: clamp(5px, 2vw, 10px);
+  font-size: clamp(20px, 6vw, 24px);
+  width: clamp(30px, 8vw, 40px);
+  height: clamp(30px, 8vw, 40px);
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  color: #4A4848;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+.faq-toggle:hover {
+  background: rgba(0, 0, 0, 0.05);
+  transform: scale(1.05);
+}
+
+.faq-answer-container {
+  margin-top: clamp(12px, 3vw, 20px);
+}
+
+.faq-answer {
+  margin: 0;
+  text-align: left;
+  font-family: Geist;
+  font-size: clamp(14px, 3.5vw, 16px);
+  color: #4a4848c2;
+  line-height: 1.6;
+  padding-right: clamp(0px, 2vw, 40px);
+}
+
+/* Optional: Mobile-specific adjustments */
+@media (max-width: 768px) {
+  .faq-container {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    margin: 20px;
+  }
+  
+  .faq-question {
+    font-weight: 500;
+  }
+}
+
+@media (max-width: 480px) {
+  .faq-container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+    margin: 15px;
+  }
+  
+  .faq-item {
+    padding: 15px;
+  }
 }
 
 /* Contact */
@@ -460,15 +646,65 @@ body::webkit-scrollbar {
 /* Responsiveness */
 @media (max-width: 768px) {
     .hero h1 {
-        max-width: 100%;
-        margin-left: 0;
+        max-width: 70%;
+        margin-left: 15%;
+        text-align: center;
     }
     .projects-grid {
         grid-template-columns: 1fr;
     }
-    
+
     .filter-btn {
         padding: 0.5rem 1.5rem;
         font-size: 0.9rem;
+    }
+    .contact p {
+        font-size: 8rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero, .hero-about {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+    
+    .hero {
+        min-height: 85vh;
+    }
+    
+    .hero h1, .hero-about h1 {
+        max-width: 100%;
+        margin-left: 0;
+        font-size: clamp(4vw, 1.75rem);
+        padding: 0 0.5rem;
+    }
+    
+    .about-title {
+        margin-bottom: 3rem;
+        font-size: 0.75rem;
+    }
+    .projects-grid {
+    grid-template-columns: 1fr;
+    padding: 2rem;
+    }
+    .project-title {
+        font-size: 1.5rem;
+    }
+    .project-description {
+        font-size: 0.85rem;
+    }
+    .tag {
+        font-size: 0.60rem;
+    }
+    .demo-link {
+        margin-left: 7rem;
+        padding: 0.6rem 2rem;
+    }
+    .contact p {
+        font-size: 4rem;
+    }
+    .btn {
+        padding: 0.6rem 1.8rem;
     }
 }

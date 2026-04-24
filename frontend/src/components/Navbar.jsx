@@ -62,18 +62,18 @@ export default function Navbar() {
         </button>
       </nav>
 
-      {menuOpen && (
-        <div className="mobile-menu">
-          {navLinks.map(({ label, id }) => (
-            <a key={id} href={`#${id}`} onClick={(e) => scrollToSection(e, id)}>
-              {label}
-            </a>
-          ))}
-          <a href={email} target="_blank" rel="noreferrer" className="mobile-cta" onClick={() => setMenuOpen(false)}>
-            Get in touch
-          </a>
-        </div>
-      )}
+      <div className={`mobile-menu${menuOpen ? " open" : ""}`}>
+  {navLinks.map(({ label, id }) => (
+    <a key={id} href={`#${id}`} onClick={(e) => scrollToSection(e, id)}>
+      {label}
+    </a>
+  ))}
+  <a href={email} target="_blank" rel="noreferrer" className="mobile-cta" onClick={() => setMenuOpen(false)}>
+    Get in touch
+  </a>
+</div>
+        
+      
     </>
   );
 }

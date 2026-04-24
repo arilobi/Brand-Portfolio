@@ -23,7 +23,7 @@ const faqData = [
   }
 ];
 
-export const FAQAccordion = () => {  // ← Just add "export" here
+export const FAQAccordion = () => {
   const [expandedIndex, setExpandedIndex] = useState(null);
 
   const toggleAccordion = (index) => {
@@ -31,66 +31,21 @@ export const FAQAccordion = () => {  // ← Just add "export" here
   };
 
   return (
-    <div style={{ 
-      margin: 'clamp(20px, 5vw, 60px)',
-      fontFamily: 'Geist',
-      textAlign: 'left',
-      paddingLeft: '7rem',
-      paddingRight: '7rem'
-    }}>
-      
+    <div className="faq-container">
       {faqData.map((faq, index) => (
-        <div key={index} style={{ 
-          padding: 'clamp(10px, 5vw, 30px)', 
-          marginBottom: 'clamp(15px, 4vw, 30px)',
-          borderBottom: '1px solid #4A4848'
-        }}>
-          <div style={{ 
-            display: 'flex', 
-            justifyContent: 'space-between', 
-            alignItems: 'flex-start', 
-            gap: '15px',
-          }}>
-            <h2 style={{ 
-              fontSize: 'clamp(13px, 4vw, 16px)', 
-              fontWeight: '400',
-              margin: '0',
-              flex: '1',
-              lineHeight: '1.4',
-              color: '#4A4848',
-            }}>{faq.question}</h2>
-            <button onClick={() => toggleAccordion(index)} style={{  
-              border: 'none', 
-              cursor: 'pointer', 
-              padding: '0', 
-              marginLeft: '10px',
-              fontSize: 'clamp(20px, 5vw, 24px)', 
-              width: 'clamp(25px, 6vw, 30px)',   
-              height: 'clamp(25px, 6vw, 30px)',   
-              flexShrink: '0',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              background: 'transparent',
-              color:'#4A4848',
-            }}>
-              {expandedIndex === index ? '-' : '+'}
+        <div key={index} className="faq-item">
+          <div className="faq-question-container">
+            <h2 className="faq-question">{faq.question}</h2>
+            <button 
+              onClick={() => toggleAccordion(index)} 
+              className="faq-toggle"
+            >
+              {expandedIndex === index ? '−' : '+'}
             </button>
           </div>
           {expandedIndex === index && (
-            <div style={{ 
-              marginTop: 'clamp(8px, 2vw, 10px)', 
-              fontSize: 'clamp(16px, 4vw, 18px)',
-            }}>
-              <p style={{ 
-                marginTop: 'clamp(15px, 4vw, 20px)',
-                textAlign: 'left',
-                fontFamily: 'Geist',
-                fontSize: ' 1rem',
-                color: '#4a4848c2',
-                margin: '0',
-                lineHeight: '1.6',
-              }}>{faq.answer}</p>
+            <div className="faq-answer-container">
+              <p className="faq-answer">{faq.answer}</p>
             </div>
           )}
         </div>
