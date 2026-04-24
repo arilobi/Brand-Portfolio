@@ -1,0 +1,63 @@
+{
+  "petProjects": [
+    {
+      "id": 1,
+      "title": "Crown and Carre | E - commerce",
+      "description": "A full-stack e-commerce system with secure JWT-based user authentication to browse and has mock checkout to purchase art prints.",
+      "tags": ["ReactJs", "Python", "PostgreSQL", "Flask"],
+      "image": "/CC.jpg",
+      "link": "https://crown-and-carre.netlify.app/",
+      "github": "https://github.com/yourusername/weather-dashboard"
+    },
+    {
+      "id": 2,
+      "title": "Cooquie | Online Journal ",
+      "description": "A full-stack journaling system with secure JWT-based user authentication and entry management",
+      "tags": ["ReactJs", "Python", "PostgreSQL", "Flask"],
+      "image": "/Cooquie.jpg",
+      "link": "https://cooquie-journal.netlify.app/",
+      "github": "https://github.com/yourusername/weather-dashboard"
+    },
+    {
+      "id": 3,
+      "title": "Sumi Bookstore",
+      "description": "A frontend responsive mock bookstore application that allows users to browse and purchase second-hand books and manage reviews.",
+      "tags": ["ReactJs", "JSON Server"],
+      "image": "/Sumi.jpg",
+      "link": "https://shopatsumi.netlify.app/",
+      "github": "https://github.com/yourusername/weather-dashboard"
+    },
+    {
+      "id": 4,
+      "title": "Hygieia | E - commerce",
+      "description": "A command-line application for browsing and purchasing medications with SQLite database integration.",
+      "tags": ["Python", "SQLAlchemy"],
+      "image": "/Hygieia.jpg",
+      "github": "https://github.com/arilobi/pharmacy-shop-project"
+    }
+  ],
+  "work": [
+    {
+      "id": 4,
+      "title": "N/A",
+      "description": "There's nothing here for now.",
+      "tags": ["N/A"],
+      "year": "N/A",
+      "company": "N/A",
+      "image": "/na.jpg",
+      "link": "N/A"
+    }
+  ],
+  "figma": [
+    {
+      "id": 1,
+      "title": "N/A",
+      "description": "There's nothing here for now.",
+      "tags": ["N/A"],
+      "year": "N/A",
+      "company": "N/A",
+      "image": "/na.jpg",
+      "link": "N/A"
+    }
+  ]
+}

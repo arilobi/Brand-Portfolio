@@ -1,0 +1,204 @@
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+.navbar {
+  background: transparent; 
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  padding: 0 2rem;
+  height: 68px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: background 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
+  border-bottom: 1px solid transparent;
+  overflow: visible;
+}
+
+.navbar:not(.scrolled) .nav-cta a {
+  background: #44403C;
+  color: #4A4848;
+}
+
+.navbar:not(.scrolled) .nav-links a:hover {
+  background: #44403C;
+}
+
+/* HAMBURGER */
+.navbar:not(.scrolled) .hamburger span {
+  background: #4A4848;
+}
+
+.navbar:not(.scrolled) .nav-cta {
+  background: #44403C;;
+  color: #fff !important;
+}
+
+.navbar:not(.scrolled) .nav-cta:hover {
+  background: #333 !important;
+  color: #EAE4CC !important;
+}
+
+.navbar.scrolled {
+  box-shadow: 0 8px 40px rgba(0,0,0,0.4);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+.navbar.scrolled .nav-cta:hover {
+  background-color: #000 !important;
+  color: #EAE4CC !important;
+}
+
+.logo {
+  font-family: 'Instrument Sans';
+  font-weight: 800;
+  font-size: 1.35rem;
+  letter-spacing: -0.02em;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  line-height: 1.3;   
+  padding: 6px 0;    
+  overflow: visible;
+}
+
+.logo-image{
+  height: auto;
+  width: 10rem;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  list-style: none;
+  text-transform: uppercase;
+}
+
+.nav-links a {
+  font-family: 'Space Mono';
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #44403C;
+  text-decoration: none;
+  padding: 0.5rem 0.9rem;
+  border-radius: 10px;
+  letter-spacing: 0.01em;
+  transition: color 0.2s, background 0.2s;
+}
+
+.nav-links a:hover {
+  color: var(--text);
+  background: #8f8a851c !important;
+  transform: translateY(-1px);
+}
+
+.nav-cta {
+  margin-left: 0.75rem;
+  padding: 0.5rem 1.25rem !important;
+  background: #44403C;
+  color: #fff !important;
+  border-radius: 10px !important;
+  transition: opacity 0.2s, transform 0.2s !important;
+}
+
+.nav-cta:hover {
+  color: #fff !important;
+  background: #000 !important;
+  transform: translateY(-1px);
+}
+
+/* Hamburger */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 6px;
+  z-index: 200;
+}
+
+.hamburger span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: var(--text);
+  border-radius: 2px;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  transform-origin: center;
+}
+
+.hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+.hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+/* Mobile menu */
+.mobile-menu .mobile-cta {
+  margin-top: 1rem;
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  background: #4A4848;   
+  color: #fff !important;
+  font-weight: 700;
+  text-align: center;
+  font-size: 0.95rem !important;
+  border-radius: 100px;
+  border-bottom: none !important;  
+}
+
+.mobile-menu.open { display: flex; }
+
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.mobile-menu a {
+  font-family: 'DM Sans';
+  font-size: 1rem;
+  font-weight: 500;
+  color: #fff !important;
+  text-decoration: none;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid var(--border);
+  transition: color 0.2s;
+}
+
+.mobile-menu a:last-child { border-bottom: none; }
+.mobile-menu a:hover { color: var(--text); }
+
+.mobile-cta {
+  margin-top: 1rem;
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  background: #4A4848;
+  color: #fff !important;
+  font-weight: 700;
+  text-align: center;
+  font-size: 0.95rem !important;
+}
+
+.mobile-cta:hover {
+  color: #fff;
+  background: #000;
+}
+
+/* Responsiveness */
+@media (max-width: 1200px) {
+  .nav-links a {
+  font-size: 1rem;
+  }
+}
+@media (max-width: 720px) {
+  .nav-links { display: none; }
+  .hamburger { display: flex; }
+}
+@media (max-width: 480px) {
+  .logo-image{
+  height: auto;
+  width: 7rem;
+}
+}
